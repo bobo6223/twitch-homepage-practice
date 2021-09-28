@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <2title2>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: 微軟正黑體;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(246, 246, 246);
+
+
+        }
+        header {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            background-color: white;
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .title {
+            display: flex;
+            align-items:center;
+
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-image: url('./Twitch_Logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
+
+        .menu {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            font-size: 18px;
+            font-weight: bold;
+
+
+        }
+        .menu-btn {
+            padding-right: 30px;
+            padding-left: 10px;
+        }
+        .menu-btn>a{
+            text-decoration: none;
+            color: black;
+        }
+        .menu-btn1 {
+            padding-right: 18px;
+            padding-left: 20px;
+            border-right: 1px solid rgb(197, 197, 197);
+        }
+        .menu-btn2 {
+            padding-left: 20px;
+        }
+        .more {
+            width: 50px;
+            height: 50px;
+            background-image: url('./hamburger-menu.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
+        .search-bar{
+            display: flex;
+        }
+        .search-input {
+            width: 355px;
+            height: 35px;
+            border-color: rgba(0, 0, 0, 0);
+            background-color: rgb(224, 224, 224);
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            padding-left: 10px;
+
+        }
+        .search-btn{
+            width: 35px;
+            height: 35px;
+            background-image: url('./放大鏡.png');
+            background-color: rgb(236, 236, 236);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 70%;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            margin-left: 2px;
+        }
+        .member{
+            display: flex;
+            align-items:center;
+        }
+        .prime-btn {
+            width: 30px;
+            height: 30px;
+            background-image: url('./Crown.png');
+            background-color: white;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
+            margin-right: 10px;
+        }
+        .sign-in-sign-up {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .sign-in{
+            width: 46px;
+            height: 30px;
+            background-color: rgb(241, 241, 241);
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .sign-up{
+            width: 46px;
+            height: 30px;
+            background-color: rgb(142, 93, 255);
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .sign-in>a{
+            text-decoration: none;
+            color: black;
+        }
+        .sign-up>a{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        .core-btn{
+            width: 30px;
+            height: 30px;
+            background-image: url('./個人化.png');
+            background-color: white;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
+            margin-right: 20px;
+        }
+        aside{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: calc(100vh - 50px);
+            background-color: rgb(238, 238, 238);
+        }
+        .small-recommend-link>div{
+            width: 30px;
+            height: 30px;
+            border-radius:999em;
+            margin: 8px;
+            background-image: url(./bebelolz-profile_image-b588d6cfff7a1003-70x70.jpeg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        main{
+            height: 100%;
+            margin: 45px 0 0 45px;
+        }
+        .container {
+            padding: 0 30px;
+        }
+        .container>h1 {
+            margin: 0;
+            font-size: 50px;
+
+        }
+        .container>p {
+            margin: 10px 0 45px 0;
+            font-size: 23px;
+            font-weight: bold;
+            color: rgb(82, 82, 82);
+
+        }
+
+        .row{
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        .col {
+            min-width: 265px;
+        }
+
+        .game-card {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            background-color: rgb(233, 233, 233);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .game-img {
+            width: 40px;
+            height: 50px;
+            border-radius: 5px;
+            background-image: url(./League\ of\ Legends-48x64.jpg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .game-info {
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            width: 182px;
+            height: 70px;
+            position: relative;
+
+        }
+        .game-name,.sub-info {
+            margin: 0;
+            font-size: 12px;
+        }
+        .sub-info {
+            color: grey;
+        }
+        .live-block {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+        }
+        .live{
+            width: 40px;
+            height: 20px;
+            background-color: red;
+            border-radius: 5px;
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .container>h2 {
+            margin: 20px 0 0 0;
+            font-size: 32px;
+
+        }
+        .container>p2 {
+            margin: 10px 0 55px 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: rgb(82, 82, 82);
+
+        }
+
+        .videos{
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .highlight{
+            width: 33.33%;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .highlight .thumbnail{
+            width: 100%;
+            height: 300px;
+            background-color:rgb(255, 240, 214);
+            position: relative;
+            margin-bottom: 10px;
+            background-image: url(./LCS.jpg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .condition{
+            color: white;
+            font-size: 15px;
+            height: 20px;
+            padding: 0 5px;
+            background-color: rgba(0, 0, 0,0.5);
+            border-radius: 5%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        .live-icon{
+            width: 40px;
+            height: 20px;
+            color: white;
+            background-color: red;
+            border-radius: 5px;
+            font-weight: 550;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 10px;
+            top: 15px;
+        }
+
+        .game-name2{
+            height: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .game-name2 .text{
+            color:rgb(142, 93, 255);
+            font-weight: bold;     
+        }
+        .text {
+            font-size: 10px;
+        }
+
+        .pic{
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            margin-right: 5px;
+            background-image: url(./lol-lcs.png);
+            background-position: center;
+            background-size: 50%;
+            background-repeat: no-repeat;
+        }
+        .title2{
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .description{
+            width: 100%;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .other {
+            width: 66.66%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .video-card{
+            width: 24%;
+            margin-bottom: 20px;;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .thumbnail{
+            width: 100%;
+            height: 150px;
+            background-color: rgb(255, 240, 214);
+            position: relative;
+            margin-bottom: 10px;
+            background-image: url(./LCS.jpg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .video-card>.title3{
+            width: 100%;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">
+                <div class="logo"></div>
+            <nav>
+                <ul class="menu">
+                    <li class="menu-btn menu-btn1">
+                        <a href="">瀏覽</a>
+                    </li>
+                    <li class="menu-btn menu-btn2">
+                        <a href="">電競</a>
+                    </li>
+                    <li class="menu-btn menu-btn3">
+                        <a href="">音樂</a>
+                    </li>
+                </ul>
+            </nav>
+        <div class="more"></div>
+
+        </div>
+        
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="搜尋">
+            <div class="search-btn"></div>
+
+        </div>
+
+        <div class="member">
+            <div class="prime-btn"></div>
+            <ul class="sign-in-sign-up">
+                <li class="sign-in">
+                    <a href="">登入</a>
+                </li>
+                <li class="sign-up">
+                    <a href="">註冊</a>
+                </li>
+            </ul>
+            <div class="core-btn"></div>
+        </div>
+
+    </header>
+
+    <aside>
+        <div class="small-recommend-link">
+            <div class="player">
+                <a href=""></a>
+            </div>
+            <div class="player">
+                <a href=""></a>
+            </div>
+            <div class="player">
+                <a href=""></a>
+            </div>
+            <div class="player">
+                <a href=""></a>
+            </div>
+            <div class="player">
+                <a href=""></a>
+            </div><div class="player">
+                <a href=""></a>
+            </div><div class="player">
+                <a href=""></a>
+            </div><div class="player">
+                <a href=""></a>
+            </div><div class="player">
+                <a href=""></a>
+            </div>
+        </div>
+
+    </aside>
+
+    <main>
+        <div class="container">
+            <h1>電競</h1>
+            <p class="e-sport-description">
+                即時實況、賽事精華和您最愛的職業玩家都在這裡
+            </p>
+            <div class="row">
+                <div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div><div class="col">
+                    <div class="game-card">
+                        <div class="game-img"></div>
+                        <div class="game-info">
+                            <p class="game-name">League of Legends</p>
+                            <p class="sub-info">觀眾人數:777</p>
+                        </div>
+                        <div class="live-block">
+                            <div class="live">LIVE</div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+
+            <h2>實況中的對戰</h2>
+            <p2>我們認為您會喜歡的最精采 Live 比賽和對戰</p2>
+
+            <div class="videos">
+                <div class="highlight">
+                    <div class="thumbnail">
+                        <div class="condition">觀眾人數:7777</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                    <div class="game-name2">
+                        <div class="pic"></div>
+                        <div class="text">LCS</div>
+                    </div>
+                    <div class="title2">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                    <div class="description">League of Legends • 英文</div>
+                </div>
+        
+                <div class="other">
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="thumbnail">
+                            <div class="condition">觀眾人數:7777</div>
+                            <div class="live-icon">LIVE</div>
+                        </div>
+                        <div class="game-name2">
+                            <div class="pic"></div>
+                            <div class="text">LCS</div>
+                        </div>
+                        <div class="title3">LCS Proving Grounds Summer 2021 - Powered by Verizon</div>
+                        <div class="description">League of Legends • 英文</div>
+                    </div>
+                    <div class="video-card"></div>
+                    <div class="video-card"></div>
+                    <div class="video-card"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+</body>
+</html>
